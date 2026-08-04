@@ -25,7 +25,7 @@
     --font-script:'Alex Brush', cursive;
   }
 
-  *{box-sizing:border-box;}
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
   button,a,input,.envelope,.venue-tab{ touch-action:manipulation; }
   html{scroll-behavior:smooth;}
   body{
@@ -88,7 +88,7 @@
   /* ---------- Countdown ---------- */
   .countdown-grid{ display:flex; justify-content:center; gap:18px; margin:26px 0 10px; }
   .cd-item{ text-align:center; min-width:52px; }
-  .cd-num{ font-family:'Playfair Display', serif; font-size:34px; font-weight:600; }
+  .cd-num{ font-family:'Playfair Display', serif; font-size:34px; font-weight:600; font-variant-numeric:tabular-nums; }
   .cd-lbl{ font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-top:2px; }
   .cd-colon{ font-family:'Playfair Display', serif; font-size:34px; color:var(--ink-soft); align-self:flex-start; margin-top:2px; }
 
@@ -142,6 +142,7 @@
   .modal-overlay.open{ opacity:1; visibility:visible; }
   .modal-card{
     width:100%; max-width:var(--max); max-height:88vh; overflow-y:auto;
+    overscroll-behavior:contain;
     background:var(--cream-2); border-radius:28px 28px 0 0; padding:30px 26px 34px;
     transform:translateY(30px); transition:transform .4s ease;
     position:relative;
@@ -154,7 +155,7 @@
   .modal-title{ font-family:'Playfair Display', serif; font-size:24px; text-align:center; margin:4px 0 4px; }
   .modal-sub{ text-align:center; font-size:14px; color:var(--ink-soft); margin-bottom:24px; }
 
-  .field-label{ font-size:16px; margin-bottom:8px; }
+  .field-label{ display:block; font-size:16px; margin-bottom:8px; }
   .text-input{
     width:100%; border:1px solid var(--line); border-radius:10px; background:var(--white);
     font-family:'EB Garamond', serif; font-size:17px; padding:11px 14px; margin-bottom:22px; color:var(--ink);
@@ -227,7 +228,7 @@
 
   /* ---------- Closing (photo background) ---------- */
   .closing{
-    margin:50px -28px 0; padding:64px 28px 54px; position:relative; overflow:hidden;
+    margin:50px 0 0; padding:64px 28px 54px; position:relative; overflow:hidden;
     background:linear-gradient(150deg,#e9e0d0,#d9cdb8 55%,#cbbfa8);
     text-align:center;
   }
@@ -243,7 +244,7 @@
 
   /* ---------- Floating audio ---------- */
   .audio-btn{
-    position:fixed; right:22px; bottom:22px; width:52px; height:52px; border-radius:50%;
+    position:fixed; right:22px; bottom:max(22px, env(safe-area-inset-bottom)); width:52px; height:52px; border-radius:50%;
     background:var(--olive); display:flex; align-items:center; justify-content:center; cursor:pointer;
     box-shadow:0 8px 20px -6px rgba(0,0,0,.4); z-index:40; border:none;
   }
@@ -725,8 +726,8 @@
     <div class="modal-title">Confirm Your Attendance</div>
     <div class="modal-sub">Please RSVP before 10 August</div>
 
-    <div class="field-label">Your name</div>
-    <input class="text-input" type="text" placeholder="">
+    <label class="field-label" for="rsvpName">Your name</label>
+    <input class="text-input" id="rsvpName" type="text" name="name" autocomplete="name" placeholder="">
 
     <fieldset>
       <legend>Which functions will you be attending?</legend>
@@ -736,8 +737,8 @@
       <label class="check-item"><input type="checkbox" name="events">Reception — 5 Sep, Hoovinahadagali</label>
     </fieldset>
 
-    <div class="field-label">Number of guests attending</div>
-    <input class="text-input" type="number" min="0" placeholder="0">
+    <label class="field-label" for="rsvpGuests">Number of guests attending</label>
+    <input class="text-input" id="rsvpGuests" type="number" name="guests" inputmode="numeric" autocomplete="off" min="0" placeholder="0">
 
     <fieldset>
       <legend>Meal preference</legend>
