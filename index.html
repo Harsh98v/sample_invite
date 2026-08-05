@@ -6,7 +6,7 @@
 <title>Vinay & Sai Surekha — Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Alex+Brush&family=Tiro+Telugu:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#f7f2ea;
@@ -48,16 +48,12 @@
   .script.lg{ font-size:52px; margin:0 0 6px; }
   .script.md{ font-size:40px; margin:0 0 18px; }
   h1.headline{ font-family:'Playfair Display', serif; font-weight:600; font-size:34px; text-align:center; margin:10px 0 8px; line-height:1.22; }
+  h1.headline .tel{ font-family:'Tiro Telugu', serif; font-weight:400; }
   .sub{ text-align:center; font-style:italic; color:var(--ink-soft); font-size:19px; margin:0 0 28px; }
   p{ margin:0 0 16px; }
   .center{ text-align:center; }
 
   .rule{ height:1px; background:var(--line); border:none; margin:14px 0 30px; }
-
-  .meta-row{ display:flex; justify-content:space-between; padding-top:34px; font-size:15px; }
-  .meta-row .item{ text-align:center; }
-  .meta-row .item .big{ font-family:'Playfair Display', serif; font-size:20px; display:block; margin-bottom:2px; }
-  .meta-row .item .lbl{ color:var(--ink-soft); font-style:italic; }
 
   /* ---------- Photo placeholders ---------- */
   .photo{
@@ -70,9 +66,6 @@
     position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
     gap:8px; color:#6b6151; font-style:italic; font-size:15px; text-align:center; padding:0 20px;
   }
-  .polaroid{ background:var(--white); padding:10px 10px 26px; border-radius:4px; box-shadow:0 10px 24px -8px rgba(40,32,20,.35); width:100%; }
-  .polaroid .photo{ margin:0; border-radius:2px; aspect-ratio:1/1; }
-
   section{ padding-bottom:6px; }
   .dove{ margin:26px auto; opacity:.75; }
 
@@ -113,86 +106,9 @@
   .t-time b{ font-weight:600; }
   .t-loc{ font-size:14px; color:var(--ink-soft); margin-top:2px; font-style:italic; }
 
-  /* ---------- Swatches / dress code ---------- */
-  .swatches{ display:flex; justify-content:center; gap:14px; margin:22px 0 30px; }
+  /* ---------- Swatches (dress code) ---------- */
+  .swatches{ display:flex; justify-content:center; gap:14px; margin:14px 0 0; }
   .swatch{ width:34px; height:34px; border-radius:50%; border:1px solid rgba(0,0,0,.06); }
-  .dress-row{ display:flex; align-items:center; gap:18px; margin-bottom:26px; }
-  .dress-row.reverse{ flex-direction:row-reverse; }
-  .dress-row .polaroid{ width:44%; flex-shrink:0; }
-  .dress-row .txt{ font-size:15px; }
-  .dress-row .txt .who{ font-family:'Playfair Display', serif; font-size:17px; display:block; margin-bottom:4px; }
-
-  /* ---------- Gift preference ---------- */
-  .gift-box{ border:1px dashed var(--line); border-radius:20px; padding:26px 22px; text-align:center; font-size:15px; color:var(--ink-soft); }
-
-  /* ---------- Confirm attendance ---------- */
-  .rsvp-btn{
-    display:block; margin:22px auto 0; background:var(--seal); color:var(--white);
-    border:none; padding:14px 40px; border-radius:30px; font-family:'EB Garamond', serif;
-    font-size:17px; letter-spacing:.03em; cursor:pointer;
-  }
-  .rsvp-btn:hover{ filter:brightness(1.08); }
-
-  /* ---------- Modal ---------- */
-  .modal-overlay{
-    position:fixed; inset:0; background:rgba(20,16,12,.55); z-index:80;
-    display:flex; align-items:flex-end; justify-content:center;
-    opacity:0; visibility:hidden; transition:opacity .35s ease, visibility .35s ease;
-  }
-  .modal-overlay.open{ opacity:1; visibility:visible; }
-  .modal-card{
-    width:100%; max-width:var(--max); max-height:88vh; overflow-y:auto;
-    overscroll-behavior:contain;
-    background:var(--cream-2); border-radius:28px 28px 0 0; padding:30px 26px 34px;
-    transform:translateY(30px); transition:transform .4s ease;
-    position:relative;
-  }
-  .modal-overlay.open .modal-card{ transform:translateY(0); }
-  .modal-close{
-    position:absolute; top:18px; right:20px; background:none; border:none; font-size:22px;
-    color:var(--ink-soft); cursor:pointer; line-height:1;
-  }
-  .modal-title{ font-family:'Playfair Display', serif; font-size:24px; text-align:center; margin:4px 0 4px; }
-  .modal-sub{ text-align:center; font-size:14px; color:var(--ink-soft); margin-bottom:24px; }
-
-  .field-label{ display:block; font-size:16px; margin-bottom:8px; }
-  .text-input{
-    width:100%; border:1px solid var(--line); border-radius:10px; background:var(--white);
-    font-family:'EB Garamond', serif; font-size:17px; padding:11px 14px; margin-bottom:22px; color:var(--ink);
-  }
-  .text-input:focus{ outline:none; border-color:var(--gold); }
-
-  fieldset{ border:none; padding:0; margin:0 0 22px; }
-  legend{ font-size:16px; margin-bottom:10px; padding:0; }
-
-  .radio-item, .check-item{ display:flex; align-items:center; gap:12px; margin-bottom:11px; cursor:pointer; font-size:16px; }
-  .radio-item input{
-    appearance:none; -webkit-appearance:none; width:18px; height:18px; border:1.4px solid var(--ink);
-    border-radius:50%; flex-shrink:0; position:relative; cursor:pointer; margin:0;
-  }
-  .radio-item input:checked{ border-color:var(--seal); }
-  .radio-item input:checked::after{
-    content:''; position:absolute; inset:3px; border-radius:50%; background:var(--seal);
-  }
-  .check-item input{
-    appearance:none; -webkit-appearance:none; width:18px; height:18px; border:1.4px solid var(--ink);
-    border-radius:3px; flex-shrink:0; position:relative; cursor:pointer; margin:0;
-  }
-  .check-item input:checked{ background:var(--olive); border-color:var(--olive); }
-  .check-item input:checked::after{
-    content:''; position:absolute; left:5px; top:1px; width:5px; height:9px;
-    border:solid var(--white); border-width:0 2px 2px 0; transform:rotate(40deg);
-  }
-
-  .btn-submit{
-    display:block; width:100%; text-align:center; padding:16px; border-radius:30px; border:none;
-    font-family:'EB Garamond', serif; font-size:14px; letter-spacing:.12em; text-transform:uppercase;
-    cursor:pointer; background:var(--taupe); color:var(--white); margin-top:6px;
-  }
-  .btn-submit:hover{ filter:brightness(.96); }
-
-  /* ---------- Organizational ---------- */
-  .phone{ font-family:'Playfair Display', serif; font-size:26px; text-align:center; margin:14px 0 22px; }
 
   /* ---------- Multi-event cards ---------- */
   .event-card{
@@ -200,17 +116,22 @@
     text-align:center; margin-bottom:20px;
   }
   .event-card:last-child{ margin-bottom:0; }
-  .event-name{ font-family:'Playfair Display', serif; font-size:23px; font-weight:600; margin-bottom:4px; }
+  .event-name{ font-family:'Playfair Display', serif; font-size:28px; font-weight:600; margin-bottom:4px; }
   .event-meta{ font-size:15px; color:var(--ink-soft); font-style:italic; margin-bottom:20px; }
-  .countdown-grid.sm{ gap:10px; margin:0 0 18px; }
-  .countdown-grid.sm .cd-num{ font-size:24px; }
-  .countdown-grid.sm .cd-item{ min-width:44px; }
-  .event-rsvp-btn{
-    background:transparent; border:1px solid var(--seal); color:var(--seal);
-    padding:9px 26px; border-radius:22px; font-family:'EB Garamond', serif; font-size:14px;
-    letter-spacing:.03em; cursor:pointer;
+  .event-card.has-bg{
+    position:relative; overflow:hidden; background-size:cover; background-position:center 85%; border-color:transparent;
   }
-  .event-rsvp-btn:hover{ background:var(--seal); color:var(--white); }
+  .event-card.has-bg::before{
+    content:''; position:absolute; inset:0; background:rgba(20,16,12,.48);
+  }
+  .event-card.has-bg > *{ position:relative; }
+  .event-card.has-bg .event-name, .event-card.has-bg .event-meta,
+  .event-card.has-bg .cd-num, .event-card.has-bg .cd-lbl, .event-card.has-bg .cd-colon,
+  .event-card.has-bg .event-dress{ color:var(--white); }
+  .countdown-grid.sm{ gap:10px; margin:0 0 18px; }
+  .countdown-grid.sm .cd-num{ font-size:19px; }
+  .countdown-grid.sm .cd-item{ min-width:44px; }
+  .event-dress{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:2px; }
 
   /* ---------- Venue tabs ---------- */
   .venue-tabs{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:22px 0 18px; }
@@ -240,7 +161,6 @@
   .closing > *{ position:relative; z-index:2; }
   .closing .script.md{ color:var(--ink); }
   .closing .names{ font-family:'Playfair Display', serif; font-size:22px; margin-bottom:22px; }
-  .closing .rsvp-btn{ margin-top:0; }
 
   /* ---------- Floating audio ---------- */
   .audio-btn{
@@ -421,7 +341,6 @@
   @media (max-width:380px){
     .script.lg{ font-size:44px; }
     h1.headline{ font-size:28px; }
-    .dress-row{ gap:12px; }
     .countdown-grid{ gap:10px; }
     .cd-num{ font-size:28px; }
   }
@@ -506,10 +425,7 @@
 <!-- ===================== PAGE ===================== -->
 <div class="page">
 
-  <div class="meta-row reveal">
-    <div class="item"><span class="big">26 Aug 26</span><span class="lbl">wedding date</span></div>
-    <div class="item"><span class="big">Kakinada</span><span class="lbl">place</span></div>
-  </div>
+  <h1 class="headline reveal" style="margin-top:34px;"><span class="tel">బిక్కినవారి</span><br>Wedding invitation</h1>
   <hr class="rule">
 
   <p class="script lg reveal">Vinay & Sai Surekha</p>
@@ -595,7 +511,7 @@
     <p class="script md">Wedding events</p>
     <p class="center" style="margin-bottom:32px;">Four days of celebration across three cities — we&rsquo;d love for you to join us for whichever you can.</p>
 
-    <div class="event-card" data-target="2026-08-22T09:00:00">
+    <div class="event-card has-bg" data-target="2026-08-22T09:00:00" style="background-image:url('assets/groom-card-bg.jpg'); background-position:center 38%;">
       <div class="event-name">Groom Making</div>
       <div class="event-meta">22 Aug 2026 — Magala</div>
       <div class="countdown-grid sm">
@@ -604,10 +520,9 @@
         <div class="cd-item"><div class="cd-num cd-mins">00</div><div class="cd-lbl">Min</div></div>
         <div class="cd-item"><div class="cd-num cd-secs">00</div><div class="cd-lbl">Sec</div></div>
       </div>
-      <button class="event-rsvp-btn" data-open-rsvp>RSVP</button>
     </div>
 
-    <div class="event-card" data-target="2026-08-25T09:00:00">
+    <div class="event-card has-bg" data-target="2026-08-25T09:00:00" style="background-image:url('assets/haldi-card-bg.jpg');">
       <div class="event-name">Haldi</div>
       <div class="event-meta">25 Aug 2026 — Kakinada</div>
       <div class="countdown-grid sm">
@@ -616,10 +531,17 @@
         <div class="cd-item"><div class="cd-num cd-mins">00</div><div class="cd-lbl">Min</div></div>
         <div class="cd-item"><div class="cd-num cd-secs">00</div><div class="cd-lbl">Sec</div></div>
       </div>
-      <button class="event-rsvp-btn" data-open-rsvp>RSVP</button>
+      <div class="event-dress">Dress code: cream, sand &amp; sage tones</div>
+      <div class="swatches">
+        <div class="swatch" style="background:#f2ebe0"></div>
+        <div class="swatch" style="background:#d8d5cd"></div>
+        <div class="swatch" style="background:#c8b298"></div>
+        <div class="swatch" style="background:#6f6b62"></div>
+        <div class="swatch" style="background:#1e1c19"></div>
+      </div>
     </div>
 
-    <div class="event-card" data-target="2026-08-26T10:00:00">
+    <div class="event-card has-bg" data-target="2026-08-26T10:00:00" style="background-image:url('assets/wedding-card-bg.jpg');">
       <div class="event-name">Wedding</div>
       <div class="event-meta">26 Aug 2026 — Kakinada</div>
       <div class="countdown-grid sm">
@@ -628,19 +550,17 @@
         <div class="cd-item"><div class="cd-num cd-mins">00</div><div class="cd-lbl">Min</div></div>
         <div class="cd-item"><div class="cd-num cd-secs">00</div><div class="cd-lbl">Sec</div></div>
       </div>
-      <button class="event-rsvp-btn" data-open-rsvp>RSVP</button>
     </div>
 
-    <div class="event-card" data-target="2026-09-05T19:00:00">
+    <div class="event-card has-bg" data-target="2026-09-05T19:00:00" style="background-image:url('assets/reception-card-bg.jpg'); background-position:center 40%;">
       <div class="event-name">Reception</div>
-      <div class="event-meta">5 Sep 2026 — Hoovinahadagali</div>
+      <div class="event-meta">5 Sep 2026 — Huvina Hadagali</div>
       <div class="countdown-grid sm">
         <div class="cd-item"><div class="cd-num cd-days">00</div><div class="cd-lbl">Days</div></div>
         <div class="cd-item"><div class="cd-num cd-hours">00</div><div class="cd-lbl">Hrs</div></div>
         <div class="cd-item"><div class="cd-num cd-mins">00</div><div class="cd-lbl">Min</div></div>
         <div class="cd-item"><div class="cd-num cd-secs">00</div><div class="cd-lbl">Sec</div></div>
       </div>
-      <button class="event-rsvp-btn" data-open-rsvp>RSVP</button>
     </div>
   </section>
 
@@ -648,45 +568,6 @@
   <div class="photo full reveal">
     <div class="ph-label">Full-width photo<br>— an outdoor / candid moment —</div>
   </div>
-
-  <section class="reveal">
-    <p class="script md">Dress code</p>
-    <p class="center">We&rsquo;d love for your outfit to complement our wedding palette.</p>
-    <div class="swatches">
-      <div class="swatch" style="background:#f2ebe0"></div>
-      <div class="swatch" style="background:#d8d5cd"></div>
-      <div class="swatch" style="background:#c8b298"></div>
-      <div class="swatch" style="background:#6f6b62"></div>
-      <div class="swatch" style="background:#1e1c19"></div>
-    </div>
-    <div class="dress-row">
-      <div class="polaroid"><div class="photo"><div class="ph-label">Groom &amp; party</div></div></div>
-      <div class="txt"><span class="who">Men</span>Suits or jackets in cream, sand, or charcoal.</div>
-    </div>
-    <div class="dress-row reverse">
-      <div class="polaroid"><div class="photo"><div class="ph-label">Bride &amp; party</div></div></div>
-      <div class="txt"><span class="who">Women</span>Cocktail dresses in soft neutrals or sage.</div>
-    </div>
-    <p class="center" style="font-size:15px; font-style:italic; color:var(--ink-soft);">The ceremony is outdoors on grass, so comfortable shoes are a good idea!</p>
-  </section>
-
-  <section class="reveal">
-    <p class="script md">Gift preference</p>
-    <div class="gift-box">Your presence is truly the greatest gift. If you&rsquo;d still like to contribute, a small note to the honeymoon fund is always appreciated.</div>
-  </section>
-
-  <section class="reveal" style="margin-top:40px;">
-    <p class="script md">Confirm your attendance</p>
-    <p class="center">Kindly let us know which celebrations you&rsquo;ll be joining us for.</p>
-    <button class="rsvp-btn" data-open-rsvp>RSVP</button>
-  </section>
-
-  <section class="reveal">
-    <p class="script md">Organizational aspects</p>
-    <p class="center">If you have any questions, you can always contact the organizer of our wedding — Sai Surekha.</p>
-    <div class="phone">+1 415 555 0192</div>
-    <p class="center" style="font-size:15px;">We&rsquo;d also love to see creative approaches to congratulations — a favorite memory or a funny story to share and laugh about together.</p>
-  </section>
 
   <section class="reveal">
     <p class="script md">The location</p>
@@ -697,9 +578,13 @@
       <button class="venue-tab" data-venue="reception">Reception</button>
     </div>
     <div class="map-box">
-      <iframe id="venueMap" loading="lazy" src="https://www.google.com/maps?q=Magala%2C+India&output=embed"></iframe>
+      <iframe id="venueMap" loading="lazy" src="https://www.google.com/maps?q=14.9944207,75.7981902&output=embed"></iframe>
     </div>
     <div class="venue-address" id="venueAddress">Magala, India</div>
+  </section>
+
+  <section class="reveal">
+    <p class="center">If you have any concerns, you can always reach out to our family members.</p>
   </section>
 
 </div>
@@ -708,7 +593,6 @@
   <div class="ph-note">— add a full-bleed couple photo here —</div>
   <p class="script md">Hope to see you there!</p>
   <div class="names">Vinay and Sai Surekha</div>
-  <button class="rsvp-btn" data-open-rsvp>RSVP</button>
 </div>
 
 <button class="audio-btn" id="audioBtn" aria-label="Toggle background music" aria-pressed="false">
@@ -718,39 +602,6 @@
 <audio id="bgAudio" loop preload="none">
   <!-- <source src="your-song.mp3" type="audio/mpeg"> -->
 </audio>
-
-<!-- ===================== RSVP MODAL ===================== -->
-<div class="modal-overlay" id="rsvpModal">
-  <div class="modal-card">
-    <button class="modal-close" id="closeRsvp" aria-label="Close">&times;</button>
-    <div class="modal-title">Confirm Your Attendance</div>
-    <div class="modal-sub">Please RSVP before 10 August</div>
-
-    <label class="field-label" for="rsvpName">Your name</label>
-    <input class="text-input" id="rsvpName" type="text" name="name" autocomplete="name" placeholder="">
-
-    <fieldset>
-      <legend>Which functions will you be attending?</legend>
-      <label class="check-item"><input type="checkbox" name="events">Groom Making — 22 Aug, Magala</label>
-      <label class="check-item"><input type="checkbox" name="events">Haldi — 25 Aug, Kakinada</label>
-      <label class="check-item"><input type="checkbox" name="events">Wedding — 26 Aug, Kakinada</label>
-      <label class="check-item"><input type="checkbox" name="events">Reception — 5 Sep, Hoovinahadagali</label>
-    </fieldset>
-
-    <label class="field-label" for="rsvpGuests">Number of guests attending</label>
-    <input class="text-input" id="rsvpGuests" type="number" name="guests" inputmode="numeric" autocomplete="off" min="0" placeholder="0">
-
-    <fieldset>
-      <legend>Meal preference</legend>
-      <label class="check-item"><input type="checkbox" name="meal" data-group="meal">Vegetarian</label>
-      <label class="check-item"><input type="checkbox" name="meal" data-group="meal">Non-vegetarian</label>
-      <label class="check-item"><input type="checkbox" name="meal" data-group="meal">Jain</label>
-      <label class="check-item"><input type="checkbox" name="meal" data-group="meal">No preference</label>
-    </fieldset>
-
-    <button class="btn-submit" type="button">Submit</button>
-  </div>
-</div>
 
 <script>
   // ---- Envelope open interaction ----
@@ -793,10 +644,10 @@
 
   // ---- Venue tabs ----
   const venues = {
-    groom:     { address:'Magala, India' },
+    groom:     { address:'Magala, Karnataka, India', query:'14.9944207,75.7981902' },
     haldi:     { address:'Kakinada, Andhra Pradesh, India' },
-    wedding:   { address:'Kakinada, Andhra Pradesh, India' },
-    reception: { address:'Hoovinahadagali, Karnataka, India' }
+    wedding:   { address:'SRMT Function Hall, Kakinada, Andhra Pradesh' },
+    reception: { address:'Kitturani Channamma Panchamasali Samudaya Bhavana, Huvina Hadagali, Karnataka' }
   };
   const venueMap = document.getElementById('venueMap');
   const venueAddress = document.getElementById('venueAddress');
@@ -805,28 +656,8 @@
       document.querySelectorAll('.venue-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const v = venues[tab.dataset.venue];
-      venueMap.src = `https://www.google.com/maps?q=${encodeURIComponent(v.address)}&output=embed`;
+      venueMap.src = `https://www.google.com/maps?q=${encodeURIComponent(v.query || v.address)}&output=embed`;
       venueAddress.textContent = v.address;
-    });
-  });
-
-  // ---- RSVP modal ----
-  const modal = document.getElementById('rsvpModal');
-  function openModal(){ modal.classList.add('open'); }
-  function closeModal(){ modal.classList.remove('open'); }
-  document.querySelectorAll('[data-open-rsvp]').forEach(btn => btn.addEventListener('click', openModal));
-  document.getElementById('closeRsvp').addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-
-  // ---- Single-select within groups, checkbox visuals ----
-  document.querySelectorAll('.check-item input[type="checkbox"]').forEach(box => {
-    box.addEventListener('change', () => {
-      if (box.checked) {
-        const group = box.dataset.group;
-        document.querySelectorAll(`input[data-group="${group}"]`).forEach(other => {
-          if (other !== box) other.checked = false;
-        });
-      }
     });
   });
 
