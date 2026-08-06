@@ -150,17 +150,15 @@
   /* ---------- Closing (photo background) ---------- */
   .closing{
     margin:50px 0 0; padding:64px 28px 54px; position:relative; overflow:hidden;
-    background:linear-gradient(150deg,#e9e0d0,#d9cdb8 55%,#cbbfa8);
+    background-size:cover; background-position:center; background-repeat:no-repeat;
     text-align:center;
   }
   .closing::before{
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(180deg, rgba(20,16,12,0) 30%, rgba(20,16,12,.55) 100%);
+    content:''; position:absolute; inset:0; background:rgba(20,16,12,.45);
   }
-  .closing .ph-note{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#6b6151; font-style:italic; font-size:14px; opacity:.6; }
   .closing > *{ position:relative; z-index:2; }
-  .closing .script.md{ color:var(--ink); }
-  .closing .names{ font-family:'Playfair Display', serif; font-size:22px; margin-bottom:22px; }
+  .closing .script.md{ color:var(--white); }
+  .closing .names{ font-family:'Playfair Display', serif; font-size:22px; margin-bottom:22px; color:var(--white); }
 
   /* ---------- Floating audio ---------- */
   .audio-btn{
@@ -407,7 +405,7 @@
         <div class="env-cta">Click to open</div>
       </div>
       <div class="env-letter" id="envLetter">
-        <div class="el-script">V &amp; S</div>
+        <div class="el-script">V S</div>
         <div class="el-rule"></div>
         <div class="el-sub">You're Invited</div>
       </div>
@@ -415,7 +413,7 @@
       <div class="env-seal" id="envSeal">
         <div class="env-seal-half left"></div>
         <div class="env-seal-half right"></div>
-        <div class="env-seal-label">V&amp;S</div>
+        <div class="env-seal-label">VS</div>
       </div>
     </div>
     <div class="env-tap-hint">tap the seal to open your invitation</div>
@@ -589,8 +587,7 @@
 
 </div>
 
-<div class="closing reveal">
-  <div class="ph-note">— add a full-bleed couple photo here —</div>
+<div class="closing reveal" style="background-image:url('assets/closing-bg.jpg'); background-position:center top;">
   <p class="script md">Hope to see you there!</p>
   <div class="names">Vinay and Sai Surekha</div>
 </div>
