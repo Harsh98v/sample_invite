@@ -116,10 +116,6 @@
   .t-time b{ font-weight:600; }
   .t-loc{ font-size:14px; color:var(--ink-soft); margin-top:2px; font-style:italic; }
 
-  /* ---------- Swatches (dress code) ---------- */
-  .swatches{ display:flex; justify-content:center; gap:14px; margin:14px 0 0; }
-  .swatch{ width:34px; height:34px; border-radius:50%; border:1px solid rgba(0,0,0,.06); }
-
   /* ---------- Multi-event cards ---------- */
   .event-card{
     border:1px solid var(--line); border-radius:26px; padding:32px 24px 28px;
@@ -136,12 +132,14 @@
   }
   .event-card.has-bg > *{ position:relative; }
   .event-card.has-bg .event-name, .event-card.has-bg .event-meta,
-  .event-card.has-bg .cd-num, .event-card.has-bg .cd-lbl, .event-card.has-bg .cd-colon,
-  .event-card.has-bg .event-dress{ color:var(--white); }
+  .event-card.has-bg .cd-num, .event-card.has-bg .cd-lbl, .event-card.has-bg .cd-colon{ color:var(--white); }
   .countdown-grid.sm{ gap:10px; margin:0 0 18px; }
   .countdown-grid.sm .cd-num{ font-size:19px; }
   .countdown-grid.sm .cd-item{ min-width:44px; }
-  .event-dress{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:2px; }
+  .event-dress{
+    display:inline-block; margin-top:14px; padding:7px 16px; border-radius:20px;
+    background:var(--gold); color:var(--ink); font-size:13px; font-weight:600; letter-spacing:.02em;
+  }
 
   /* ---------- Venue tabs ---------- */
   .venue-tabs{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:22px 0 18px; }
@@ -408,14 +406,7 @@
         <div class="cd-item"><div class="cd-num cd-mins">00</div><div class="cd-lbl">Min</div></div>
         <div class="cd-item"><div class="cd-num cd-secs">00</div><div class="cd-lbl">Sec</div></div>
       </div>
-      <div class="event-dress">Dress code: cream, sand &amp; sage tones</div>
-      <div class="swatches">
-        <div class="swatch" style="background:#f2ebe0"></div>
-        <div class="swatch" style="background:#d8d5cd"></div>
-        <div class="swatch" style="background:#c8b298"></div>
-        <div class="swatch" style="background:#6f6b62"></div>
-        <div class="swatch" style="background:#1e1c19"></div>
-      </div>
+      <div class="event-dress">Dress code: white for him, yellow for her — traditional Haldi hues</div>
     </div>
 
     <div class="event-card has-bg" data-target="2026-08-26T10:00:00" style="background-image:url('assets/wedding-card-bg.jpg');">
