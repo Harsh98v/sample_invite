@@ -485,7 +485,7 @@
   <svg id="iconPause" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="6" y="5" width="4" height="14" fill="#fbf8f3"/><rect x="14" y="5" width="4" height="14" fill="#fbf8f3"/></svg>
 </button>
 <audio id="bgAudio" loop preload="none">
-  <!-- <source src="your-song.mp3" type="audio/mpeg"> -->
+  <source src="assets/wedding-song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -496,6 +496,7 @@
   envelope.addEventListener('click', () => {
     if (opened) return;
     opened = true;
+    startAudio(); // call synchronously here (not in a later setTimeout) so browsers still count it as a user gesture
     envelope.classList.add('open');                 // seal cracks, flap lifts
     setTimeout(() => envelope.classList.add('pulled'), 550);   // letter slides out
     setTimeout(() => {
@@ -562,13 +563,15 @@
   const iconPlay = document.getElementById('iconPlay');
   const iconPause = document.getElementById('iconPause');
   let playing = false;
-  audioBtn.addEventListener('click', () => {
-    playing = !playing;
+  function setPlaying(next){
+    playing = next;
     audioBtn.setAttribute('aria-pressed', playing);
     iconPlay.style.display = playing ? 'none' : 'block';
     iconPause.style.display = playing ? 'block' : 'none';
     if (playing) { bgAudio.play().catch(()=>{}); } else { bgAudio.pause(); }
-  });
+  }
+  function startAudio(){ setPlaying(true); }
+  audioBtn.addEventListener('click', () => setPlaying(!playing));
 </script>
 
 </body>
