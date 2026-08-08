@@ -76,7 +76,7 @@
 
   /* ---------- Photo gallery (auto-scrolling loop) ---------- */
   .gallery-scroll{ overflow:hidden; margin:0 -28px; padding:0 28px 8px; }
-  .gallery-track{ display:flex; gap:14px; width:max-content; animation:gallery-loop 28s linear infinite; }
+  .gallery-track{ display:flex; gap:14px; width:max-content; animation:gallery-loop 28s linear infinite; will-change:transform; }
   .gallery-track img{ flex:0 0 auto; width:60vw; max-width:280px; aspect-ratio:4/5; object-fit:cover; border-radius:18px; }
   @keyframes gallery-loop{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
   @media (prefers-reduced-motion: reduce){
@@ -463,12 +463,12 @@
     <p class="script md">Our Moments</p>
     <div class="gallery-scroll">
       <div class="gallery-track">
-        <img src="assets/IMG_6331.jpg" alt="Vinay and Sai Surekha" loading="lazy">
-        <img src="assets/IMG_6332.jpg" alt="Vinay and Sai Surekha exchanging rings" loading="lazy">
-        <img src="assets/IMG_6333.jpg" alt="Vinay and Sai Surekha at a ceremony" loading="lazy">
-        <img src="assets/IMG_6331.jpg" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/IMG_6332.jpg" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/IMG_6333.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/gallery-IMG_6331.jpg" alt="Vinay and Sai Surekha" loading="lazy">
+        <img src="assets/gallery-IMG_6332.jpg" alt="Vinay and Sai Surekha exchanging rings" loading="lazy">
+        <img src="assets/gallery-IMG_6333.jpg" alt="Vinay and Sai Surekha at a ceremony" loading="lazy">
+        <img src="assets/gallery-IMG_6331.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/gallery-IMG_6332.jpg" alt="" aria-hidden="true" loading="lazy">
+        <img src="assets/gallery-IMG_6333.jpg" alt="" aria-hidden="true" loading="lazy">
       </div>
     </div>
   </section>
