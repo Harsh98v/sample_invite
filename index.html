@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vinay & Sai Surekha — Wedding Invitation</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vinay & Sai Surekha — Wedding Invitation">
+<meta property="og:description" content="Join us as we celebrate our wedding — 26 August 2026, Kakinada.">
+<meta property="og:image" content="https://harsh98v.github.io/sample_invite/assets/IMG_6336.jpg">
+<meta property="og:url" content="https://harsh98v.github.io/sample_invite/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Alex+Brush&family=Tiro+Telugu:ital@0;1&display=swap" rel="stylesheet">
@@ -71,7 +77,6 @@
   /* ---------- Photo gallery (auto-scrolling loop) ---------- */
   .gallery-scroll{ overflow:hidden; margin:0 -28px; padding:0 28px 8px; }
   .gallery-track{ display:flex; gap:14px; width:max-content; animation:gallery-loop 28s linear infinite; }
-  .gallery-scroll:hover .gallery-track, .gallery-scroll.paused .gallery-track{ animation-play-state:paused; }
   .gallery-track img{ flex:0 0 auto; width:60vw; max-width:280px; aspect-ratio:4/5; object-fit:cover; border-radius:18px; }
   @keyframes gallery-loop{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
   @media (prefers-reduced-motion: reduce){
@@ -119,23 +124,25 @@
   /* ---------- Multi-event cards ---------- */
   .event-card{
     border:1px solid var(--line); border-radius:26px; padding:32px 24px 28px;
-    text-align:center; margin-bottom:20px;
+    text-align:center; margin-bottom:32px;
   }
   .event-card:last-child{ margin-bottom:0; }
-  .event-name{ font-family:'Playfair Display', serif; font-size:28px; font-weight:600; margin-bottom:4px; }
-  .event-meta{ font-size:15px; color:var(--ink-soft); font-style:italic; margin-bottom:20px; }
+  .event-name{ font-family:'Playfair Display', serif; font-size:32px; font-weight:600; margin-bottom:8px; }
+  .event-meta{ font-size:17px; color:var(--ink-soft); font-style:italic; margin-bottom:22px; }
   .event-card.has-bg{
-    position:relative; overflow:hidden; background-size:cover; background-position:center 85%; border-color:transparent;
+    position:relative; overflow:hidden; background-size:cover; background-position:center 85%;
+    border-color:rgba(255,255,255,.35);
+    aspect-ratio:4/5; display:flex; flex-direction:column; justify-content:center;
   }
   .event-card.has-bg::before{
-    content:''; position:absolute; inset:0; background:rgba(20,16,12,.48);
+    content:''; position:absolute; inset:-1px; background:rgba(20,16,12,.48);
   }
   .event-card.has-bg > *{ position:relative; }
   .event-card.has-bg .event-name, .event-card.has-bg .event-meta,
   .event-card.has-bg .cd-num, .event-card.has-bg .cd-lbl, .event-card.has-bg .cd-colon{ color:var(--white); }
   .countdown-grid.sm{ gap:10px; margin:0 0 18px; }
-  .countdown-grid.sm .cd-num{ font-size:19px; }
-  .countdown-grid.sm .cd-item{ min-width:44px; }
+  .countdown-grid.sm .cd-num{ font-size:22px; }
+  .countdown-grid.sm .cd-item{ min-width:48px; }
   .event-dress{
     display:inline-block; margin-top:14px; padding:7px 16px; border-radius:20px;
     background:var(--gold); color:var(--ink); font-size:13px; font-weight:600; letter-spacing:.02em;
@@ -159,7 +166,7 @@
   .closing{
     margin:50px 0 0; padding:64px 28px 54px; text-align:center;
   }
-  .closing .names{ font-family:'Playfair Display', serif; font-size:22px; margin-bottom:22px; }
+  .closing .names{ font-family:var(--font-script); font-weight:400; font-size:34px; margin-bottom:22px; }
 
   /* ---------- Floating audio ---------- */
   .audio-btn{
@@ -248,8 +255,9 @@
   .env-seal-half.left{ clip-path:inset(0 50% 0 0); }
   .env-seal-half.right{ clip-path:inset(0 0 0 50%); }
   .env-seal-label{
-    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-script); color:#e9cba0; font-size:26px; z-index:4;
+    position:absolute; inset:6px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-script); color:#e9cba0; font-size:16px; line-height:1.05;
+    text-align:center; z-index:4;
     transition:transform .4s ease, opacity .4s ease;
   }
   .envelope.open .env-seal-label{ opacity:0; transform:scale(.7); }
@@ -342,7 +350,7 @@
         <div class="env-cta">Click to open</div>
       </div>
       <div class="env-letter" id="envLetter">
-        <div class="el-script">V S</div>
+        <div class="el-script">V and S</div>
         <div class="el-rule"></div>
         <div class="el-sub">You're Invited</div>
       </div>
@@ -350,7 +358,7 @@
       <div class="env-seal" id="envSeal">
         <div class="env-seal-half left"></div>
         <div class="env-seal-half right"></div>
-        <div class="env-seal-label">VS</div>
+        <div class="env-seal-label">V and S</div>
       </div>
     </div>
     <div class="env-tap-hint">tap the seal to open your invitation</div>
@@ -458,11 +466,9 @@
         <img src="assets/IMG_6331.jpg" alt="Vinay and Sai Surekha" loading="lazy">
         <img src="assets/IMG_6332.jpg" alt="Vinay and Sai Surekha exchanging rings" loading="lazy">
         <img src="assets/IMG_6333.jpg" alt="Vinay and Sai Surekha at a ceremony" loading="lazy">
-        <img src="assets/IMG_6335.jpg" alt="Vinay and Sai Surekha" loading="lazy">
         <img src="assets/IMG_6331.jpg" alt="" aria-hidden="true" loading="lazy">
         <img src="assets/IMG_6332.jpg" alt="" aria-hidden="true" loading="lazy">
         <img src="assets/IMG_6333.jpg" alt="" aria-hidden="true" loading="lazy">
-        <img src="assets/IMG_6335.jpg" alt="" aria-hidden="true" loading="lazy">
       </div>
     </div>
   </section>
@@ -539,15 +545,6 @@
       venueAddress.textContent = v.address;
     });
   });
-
-  // ---- Gallery auto-scroll: pause on touch (no :hover on mobile) ----
-  const galleryScroll = document.querySelector('.gallery-scroll');
-  if (galleryScroll) {
-    galleryScroll.addEventListener('pointerdown', () => galleryScroll.classList.add('paused'));
-    ['pointerup', 'pointercancel'].forEach(evt =>
-      galleryScroll.addEventListener(evt, () => galleryScroll.classList.remove('paused'))
-    );
-  }
 
   // ---- Scroll reveal (starts after envelope opens) ----
   let io;
