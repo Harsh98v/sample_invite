@@ -74,15 +74,22 @@
   section{ padding-bottom:6px; }
   .section-break-photo{ width:100%; border-radius:18px; margin:26px 0; display:block; }
 
-  /* ---------- Scroll hint ---------- */
+  /* ---------- Scroll hint (fixed to viewport, not page content) ---------- */
   .scroll-hint{
-    display:flex; flex-direction:column; align-items:center; gap:4px;
-    margin:-8px 0 28px; color:var(--ink-soft); font-size:13px; letter-spacing:.08em;
-    text-transform:uppercase;
+    position:fixed; left:14px; top:50%; z-index:30; color:var(--white); pointer-events:none;
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    padding:14px 9px; border-radius:20px; background:var(--olive);
+    box-shadow:0 8px 20px -6px rgba(0,0,0,.4);
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    animation:scroll-bounce 1.6s ease-in-out infinite;
   }
-  .scroll-hint svg{ animation:scroll-bounce 1.6s ease-in-out infinite; }
-  @keyframes scroll-bounce{ 0%,100%{ transform:translateY(0); opacity:.6; } 50%{ transform:translateY(6px); opacity:1; } }
-  @media (prefers-reduced-motion: reduce){ .scroll-hint svg{ animation:none; } }
+  .scroll-hint span{ writing-mode:vertical-rl; }
+  .scroll-hint.hint-hidden{ display:none; }
+  @keyframes scroll-bounce{
+    0%,100%{ transform:translateY(-50%) translateY(0); opacity:.6; }
+    50%{ transform:translateY(-50%) translateY(8px); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){ .scroll-hint{ animation:none; transform:translateY(-50%); } }
 
   /* ---------- Photo gallery (auto-scrolling loop) ---------- */
   .gallery-scroll{ overflow:hidden; margin:0 -28px; padding:0 28px 8px; }
@@ -387,11 +394,6 @@
 
   <div class="photo reveal" style="background-image:url('assets/IMG_6336.jpg'); background-size:cover; background-position:center top;"></div>
 
-  <div class="scroll-hint" id="scrollHint">
-    <span>Scroll down</span>
-    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" aria-hidden="true"><path d="M2 2l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-
   <section class="reveal">
     <p class="script md">Dear friends and family!</p>
     <p class="center">This autumn, something wonderful is happening — we&rsquo;re getting married. It&rsquo;s impossible to imagine the day without the people who mean the most to us.</p>
@@ -493,6 +495,11 @@
   <div class="names">Vinay and Sai Surekha</div>
 </div>
 
+<div class="scroll-hint" aria-hidden="true">
+  <span>Scroll</span>
+  <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><path d="M2 2l9 9 9-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</div>
+
 <button class="audio-btn" id="audioBtn" aria-label="Toggle background music" aria-pressed="false">
   <svg id="iconPlay" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#fbf8f3"/></svg>
   <svg id="iconPause" viewBox="0 0 24 24" fill="none" style="display:none"><rect x="6" y="5" width="4" height="14" fill="#fbf8f3"/><rect x="14" y="5" width="4" height="14" fill="#fbf8f3"/></svg>
@@ -568,6 +575,17 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  // ---- Scroll hint: hide near the bottom of the page, reappear once scrolled away from it ----
+  const scrollHint = document.querySelector('.scroll-hint');
+  if (scrollHint) {
+    const updateScrollHint = () => {
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 40;
+      scrollHint.classList.toggle('hint-hidden', nearBottom);
+    };
+    window.addEventListener('scroll', updateScrollHint, { passive: true });
+    updateScrollHint();
   }
 
   // ---- Audio toggle ----
