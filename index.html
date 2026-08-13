@@ -71,15 +71,15 @@
     background:linear-gradient(150deg,#e9e0d0,#d9cdb8 55%,#cbbfa8);
     aspect-ratio:4/5; position:relative; overflow:hidden; margin:0 0 32px;
   }
-  section{ padding-bottom:6px; }
+  section{ padding-bottom:6px; margin-top:40px; }
   .section-break-photo{ width:100%; border-radius:18px; margin:26px 0; display:block; }
 
   /* ---------- Scroll hint (fixed to viewport, not page content) ---------- */
   .scroll-hint{
     position:fixed; left:14px; top:50%; z-index:30; color:var(--white); pointer-events:none;
     display:flex; flex-direction:column; align-items:center; gap:6px;
-    padding:14px 9px; border-radius:20px; background:var(--olive);
-    box-shadow:0 8px 20px -6px rgba(0,0,0,.4);
+    padding:14px 9px; border-radius:20px; background:rgba(62,74,50,.5);
+    box-shadow:0 8px 20px -6px rgba(0,0,0,.3);
     font-size:11px; letter-spacing:.08em; text-transform:uppercase;
     animation:scroll-bounce 1.6s ease-in-out infinite;
   }
@@ -405,7 +405,7 @@
 
 <div class="page">
 
-  <section class="reveal" style="margin-top:44px;">
+  <section class="reveal">
     <p class="script md">Wedding events</p>
     <p class="center" style="margin-bottom:32px;">Four days of celebration across three cities — we&rsquo;d love for you to join us for whichever you can.</p>
 
@@ -474,7 +474,7 @@
     <p class="center">If you have any concerns, you can always reach out to our family members.</p>
   </section>
 
-  <section class="reveal" style="margin-top:40px;">
+  <section class="reveal">
     <p class="script md">Our Moments</p>
     <div class="gallery-scroll">
       <div class="gallery-track">
@@ -524,8 +524,35 @@
       intro.classList.add('hidden');
       document.body.classList.remove('locked');
       initReveal();
+      startAutoScroll();
     }, 1550);
   });
+
+  // ---- Auto-scroll the page gently until the visitor interacts ----
+  function startAutoScroll(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const speedPxPerSec = 18;
+    let running = true;
+    let last = null;
+    let carry = 0;
+    const stop = () => { running = false; };
+    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(evt =>
+      window.addEventListener(evt, stop, { passive: true, once: true })
+    );
+    function step(now){
+      if (!running) return;
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 2;
+      if (atBottom) return;
+      if (last !== null) {
+        carry += speedPxPerSec * ((now - last) / 1000);
+        const whole = Math.floor(carry);
+        if (whole > 0) { window.scrollBy(0, whole); carry -= whole; }
+      }
+      last = now;
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   // ---- Countdown timers (one per event card) ----
   function pad(n){ return String(n).padStart(2,'0'); }
